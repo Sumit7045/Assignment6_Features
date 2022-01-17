@@ -1,0 +1,58 @@
+Feature 1: Sign in to Zero Bank.
+As a user of zero bank, I should be able to Sign In with valid username and password in order to access my account.
+Scenario: Successful sign in with valid credentials.
+Given I navigate to website zero.webappsecurity.com
+When I click on Sign in button
+And I navigate to log in page
+And I enter username as “username”
+And I enter password as “password”
+And I click on Sign in button
+Then I should see account summary page
+
+Feature 2: Submit Feedback form
+As a user of Zero Bank, I should be able to submit my feedback.
+Scenario: user can submit feedback for zero bank
+Given I am on website zero.webappsecurity.com
+And I go to feedback form
+And I enter all the details
+And I click on submit button
+Then I should see the messages as “Thank you for your comments”
+
+Feature 3: Search Box
+As a user of Zero bank,
+I should be able to use the search box field to get the desired result
+Scenario: User get searched results
+Given I am on website zero.webappsecurity.com
+And I enter text in search box as “Online Banking”
+Then I should navigate to online banking page
+
+Feature 4: Forgotten Password
+As a user of Zero bank,
+I should be able to enter email in order to generate new password
+Scenario: Successful change new password with Valid email
+Given I navigates to the website zero.webappsecurity.com
+When I click on Sign-in button
+And I navigate to Login Page
+And I click on "Forgotten Password"
+And I navigate to Forgotten Password page
+When I enter "sumitkadam6165@gamil.com" in the "Email" field
+And I press the "Send Password" button
+Then I should get the "new password" to my Email
+
+Feature 5: Login Functionality
+Scenario Outline: As a user when I entered valid userid and password into app
+then I should get an error msg.
+Given I am on login page
+When I enter user id as <username> and password as <password>
+And click on Signin button
+Then I validate that I get an error message "�Login and/or password are wrong.�
+
+Examples:
+|username|password|
+|"name1"|"pass1"|
+|""|""|
+|""|"pass1"|
+|"name2"|""|
+|"12345"|"@#$$"|
+
+
